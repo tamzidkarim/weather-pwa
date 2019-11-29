@@ -34,7 +34,7 @@ const fakeForecast = {
   fakeData: true,
   latitude: 0,
   longitude: 0,
-  timezone: 'America/New_York',
+  timezone: 'Bangladesh/Dhaka',
   currently: {
     time: 0,
     summary: 'Clear',
@@ -121,7 +121,7 @@ const fakeForecast = {
  * @return {Object} forecast object.
  */
 function generateFakeForecast(location) {
-  location = location || '40.7720232,-73.9732319';
+  location = location || '23.8103, 90.4125';
   const commaAt = location.indexOf(',');
 
   // Create a new copy of the forecast
@@ -139,7 +139,7 @@ function generateFakeForecast(location) {
  * @param {Response} resp response object from Express.
  */
 function getForecast(req, resp) {
-  const location = req.params.location || '40.7720232,-73.9732319';
+  const location = req.params.location || '23.8103, 90.4125';
   const url = `${BASE_URL}/${API_KEY}/${location}`;
   fetch(url).then((resp) => {
     if (resp.status !== 200) {
